@@ -1,0 +1,66 @@
+/* Mixins:
+   ========================================================================== */
+@mixin breakpoint($width1, $width2: 0) {
+    @if ($width2 > 0) {
+        @media screen and (min-width: $width1) and (max-width: $width2) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $width1) {
+            @content;
+        }
+    }
+}
+
+@mixin title() {
+    font-size: 18px;
+    font-weight: 700;
+    @include breakpoint($tablet) {
+        font-size: 24px;
+    }
+    @include  breakpoint($desktop) {
+        font-size: 36px;
+    }
+}
+
+@mixin small-title() {
+    font-size: 16px;
+    font-weight: 700;
+    @include breakpoint($tablet) {
+        font-size: 20px;
+    }
+    @include  breakpoint($desktop) {
+        font-size: 30px;
+    }
+}
+
+@mixin name() {
+    font-size: 16px;
+    font-weight: 700;
+    @include  breakpoint($desktop) {
+        font-size: 18px;
+    }
+}
+
+@mixin underline($color: $white-color) {
+    text-decoration: none;
+    background-image: linear-gradient($color, $color);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+    cursor: pointer;
+
+    &:hover {
+        background-size: 100% 2px;
+    }
+}
+
+@mixin button-hover() {
+    transition: all 0.2s ease-in;
+    &:hover{
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+        opacity: 0.8;
+    }
+}
