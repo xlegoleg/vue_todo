@@ -60,6 +60,7 @@
             :mode="'remove'"
             v-if="showModal"
             @remove="removeHandler"
+            @close = "showModal = false"
         >
             <h3 slot="header">Remove note?</h3>
         </Modal>
